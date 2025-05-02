@@ -1,2 +1,6 @@
-# CDW_
-Supplemental Scripts for the manuscript "The Melting of Charge Density Waves in Low Dimensions"
+# Simulation of CDW Melting
+Supplemental scripts for the manuscript "The Melting of Charge Density Waves in Low Dimensions". These scripts were used to simulate the melting of 2D CDWs. 
+
+We simulate the melting by mobile charge centers which hop according to Boltzmann statistics ($e^{-\frac{\Delta E}{kT}}$) through a Monte Carlo (MC) process. The interaction energy between charge centers is calculated using a shifted Lennard Jones potential truncated at 100 angstroms. This effectively treats high-temperature CDWs as a phenomenological charge crystal. CDW amplitude collapse is modeled with the removal of charge centers at topological defect sites. The simulation is of a grand canonical ensemble (varying particle count, constant volume and temperature). Every 150 iterations, we remove a charge center with the lowest $\Psi_6$ order parameter until we reach a minimum energy configuration.
+
+To simulate melting, execute the Matlab script: `fluctuate_unit_charge_melting.m`. System parameters are directly tuned in the file. `mul` sets the initial partical count. `meltIter` sets the initial number of MC iterations,  and `relaxIter` sets the number of MC iterations after a site is removed/added. `temp_idxs` set the desired temperature to be simulated. `num_add` and `num_remove` are the maximum number of particles that can be added/removed in the simulation. The Lennard-Jones potential is defined by `rmin`, `r_c`, and `ep` which dicatate the energy minimum position, cutoff distance, and well depth, respectively.
